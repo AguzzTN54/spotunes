@@ -1,0 +1,14 @@
+**/node_modules/
+**/.history
+*.log
+
+.DS_Store
+.env
+.netlify
+.routify
+.vercel
+/dist/
+assets/build
+example
+readme.html
+src/tmp/
