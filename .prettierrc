@@ -6,5 +6,5 @@
   "endOfLine": "lf",
   "svelteStrictMode": true,
   "svelteBracketNewLine": true,
-  "svelteAllowShorthand": false
+  "svelteAllowShorthand": true
 }
