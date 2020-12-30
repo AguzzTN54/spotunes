@@ -27,20 +27,27 @@
 </script>
 
 <style>
+  :global(.dark .bottom-appbar) {
+    @apply bg-gray-800 bg-opacity-95 !important;
+  }
+
   .bottom-appbar {
+    z-index: 1000;
     @apply flex items-center justify-evenly h-12 w-full fixed bottom-0 left-0 bg-white bg-opacity-90;
-    @apply border-t border-gray-200;
+    @apply border-t border-gray-200 transition-all duration-500;
+    backdrop-filter: blur(12px);
   }
   a,
   .nav-link {
     @apply flex h-full w-full justify-center items-center;
   }
-  a {
+  .bottom-appbar a {
     @apply text-gray-500;
+    @apply dark:text-gray-300;
   }
-  a.active,
-  a:hover {
-    @apply text-pink-600 bg-white;
+  .bottom-appbar a.active,
+  .bottom-appbar a:hover {
+    @apply text-pink-600;
   }
 
   .avatar {
@@ -57,7 +64,7 @@
   {#each navLinks as { title, icon, path } (title)}
     <div class="nav-link">
       <a href="{$url(path)}" class:active="{$isActive(path)}">
-        <Icon bi="{icon}" width="30" />
+        <Icon bi="{icon}" width="28" />
       </a>
     </div>
   {/each}

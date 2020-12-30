@@ -1,6 +1,7 @@
 <script>
   import { createEventDispatcher } from 'svelte';
   import Icon from './Icon.svelte';
+  import NightToggle from './NightToggle.svelte';
 
   const arrPlaceholder = [
     'Search for Music / Artist / Album / Playlist',
@@ -14,6 +15,7 @@
 
   let searchValue = '';
 
+  export let mobile = false;
   export let isSidebarExpand = true;
   const dispatch = createEventDispatcher();
   const drawerClick = () => {
@@ -29,12 +31,16 @@
     @apply sm:h-14;
   }
 
+  :global(.dark .drawer-toggle > button) {
+    @apply text-gray-100 outline-none border-none;
+  }
   .drawer-toggle > button {
-    @apply border-none bg-transparent ml-3 mr-3 mt-1 p-1 outline-none;
+    @apply border-none bg-transparent ml-3 mr-3 mt-1 p-1 outline-none text-gray-500;
   }
 
   .search-form {
-    @apply w-96 max-w-full relative pr-4 pl-4;
+    max-width: 80%;
+    @apply w-96 relative pr-4 pl-4;
   }
   .search-input {
     @apply h-10 w-full inline-block pl-10 pr-2 pt-2 pb-2 font-light bg-transparent transition-all;
@@ -47,18 +53,25 @@
   .search-input:focus ~ .search-button {
     @apply text-pink-500;
   }
+
+  .right-topbar {
+    @apply ml-auto mr-4;
+  }
 </style>
 
 <div class="topbar">
-  <div class="drawer-toggle">
-    <button on:click="{drawerClick}">
-      {#if isSidebarExpand}
-        <Icon bi="chevron-left" width="25" />
-      {:else}
-        <Icon bi="chevron-right" width="25" />
-      {/if}
-    </button>
-  </div>
+  {#if !mobile}
+    <div class="drawer-toggle">
+      <button on:click="{drawerClick}">
+        {#if isSidebarExpand}
+          <Icon bi="chevron-left" width="25" />
+        {:else}
+          <Icon bi="chevron-right" width="25" />
+        {/if}
+      </button>
+    </div>
+  {/if}
+
   <div class="search-form">
     <input
       type="text"
@@ -72,5 +85,9 @@
     <button class="search-button">
       <Icon bi="search" />
     </button>
+  </div>
+
+  <div class="right-topbar">
+    <NightToggle />
   </div>
 </div>

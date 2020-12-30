@@ -24,21 +24,26 @@
   .row {
     @apply flex h-screen;
   }
-  main {
-    @apply w-full h-full bg-white bg-opacity-90 relative;
+  :global(.dark main) {
+    @apply text-white;
+    @apply bg-gray-800 bg-opacity-95 !important;
   }
-  .sidebar {
+  main {
+    @apply w-full h-full bg-white relative bg-opacity-90 transition-all duration-500;
+  }
+  .sidebar-content {
     @apply h-full;
     width: fit-content;
   }
 
   .content {
+    @apply w-full;
     height: calc(100% - 3.5rem);
   }
 </style>
 
 <section class="row">
-  <div class="col sidebar">
+  <div class="col sidebar-content">
     {#if mobile}
       <BottomAppbar />
     {:else}
@@ -48,6 +53,7 @@
 
   <main class="col">
     <Topbar
+      mobile="{mobile}"
       isSidebarExpand="{isSidebarExpand}"
       on:click="{() => {
         isSidebarExpand = !isSidebarExpand;
