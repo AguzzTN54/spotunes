@@ -70,7 +70,7 @@
   {/each}
   <div class="nav-link">
     <a href="{$url('/me')}" class:active="{$isActive('/me')}">
-      <img src="favicon.png" alt="Avatar" class="avatar" />
+      <img src="/images/profile.webp" alt="Avatar" class="avatar" />
     </a>
   </div>
 </div>
