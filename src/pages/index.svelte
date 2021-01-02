@@ -1,8 +1,5 @@
 <script>
-  import { metatags } from '@roxi/routify';
-
-  metatags.title = 'Spotunes - Music Player App';
-  metatags.description = 'Play and Listen Musics Everywhere';
+  import Explore from './explore.svelte';
 </script>
 
-<p>Ready To Develop :ok</p>
+<Explore />
