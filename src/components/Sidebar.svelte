@@ -74,7 +74,7 @@
     @apply mb-0;
   }
   .sidebar.active .avatar {
-    @apply ml-4 pr-0 w-12 h-12;
+    @apply ml-4 w-12 h-12;
   }
   .sidebar.active .nav-body a {
     @apply pl-6 pr-6;
@@ -94,7 +94,7 @@
     @apply dark:bg-pink-500 dark:text-white font-extralight !important;
   }
   .avatar {
-    @apply w-9 h-9 mr-2 ml-2 pr-2 rounded-full bg-gray-300 object-cover transition-all duration-500;
+    @apply w-9 h-9 mr-2 ml-2 rounded-full bg-gray-300 object-cover transition-all duration-500;
   }
   .pro {
     @apply border-pink-500 text-pink-500 pr-1 pl-1 inline-block text-center rounded-md transition-all;
@@ -132,7 +132,7 @@
 
 <div class="sidebar{isSidebarExpand ? ' active' : ''}">
   <div class="nav-header">
-    <img class="avatar" src="favicon.png" alt="Avatar" />
+    <img class="avatar" src="/images/profile.webp" alt="Avatar" />
     {#if isSidebarExpand}
       <div
         class="hide_text"
