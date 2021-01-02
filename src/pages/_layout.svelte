@@ -1,22 +1,37 @@
 <script>
   import { onMount } from 'svelte';
+  import OverlayScrollbars from 'overlayscrollbars';
+  import 'lazysizes';
   import BottomAppbar from '../components/BottomAppbar.svelte';
   import Sidebar from '../components/Sidebar.svelte';
   import Topbar from '../components/Topbar.svelte';
 
+  let content;
+  let shadow = false;
   let mobile = false;
   let isSidebarExpand = true;
-  onMount(() => {
-    const winWidth = window.innerWidth;
-    if (winWidth <= 425) mobile = true;
-    if (winWidth < 640) isSidebarExpand = false;
-    window.addEventListener('resize', () => {
-      const screenWidth = window.innerWidth;
-      if (screenWidth <= 425) mobile = true;
-      else mobile = false;
-      if (screenWidth < 640) isSidebarExpand = false;
-      else isSidebarExpand = true;
+
+  const checkViewport = () => {
+    const screenWidth = window.innerWidth;
+    console.log(screenWidth);
+    mobile = screenWidth <= 425;
+    isSidebarExpand = screenWidth > 640;
+  };
+  const whenSrolled = () => {
+    const viewportElement = document.querySelector('.os-viewport');
+    viewportElement.addEventListener('scroll', () => {
+      const position = viewportElement.scrollTop;
+      shadow = position > 0;
     });
+  };
+
+  onMount(() => {
+    checkViewport();
+    window.addEventListener('resize', () => {
+      checkViewport();
+    });
+    OverlayScrollbars(content, { sizeAutoCapable: false });
+    whenSrolled();
   });
 </script>
 
@@ -54,12 +69,13 @@
   <main class="col">
     <Topbar
       mobile="{mobile}"
+      shadow="{shadow}"
       isSidebarExpand="{isSidebarExpand}"
       on:click="{() => {
         isSidebarExpand = !isSidebarExpand;
       }}"
     />
-    <div class="content">
+    <div class="content" bind:this="{content}">
       <slot />
     </div>
   </main>

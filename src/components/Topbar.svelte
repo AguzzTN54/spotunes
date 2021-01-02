@@ -16,6 +16,7 @@
   let searchValue = '';
 
   export let mobile = false;
+  export let shadow = false;
   export let isSidebarExpand = true;
   const dispatch = createEventDispatcher();
   const drawerClick = () => {
@@ -27,8 +28,12 @@
 
 <style>
   .topbar {
-    @apply w-full h-12 flex justify-start items-center;
+    z-index: +1;
+    @apply w-full h-12 flex justify-start items-center relative;
     @apply sm:h-14;
+  }
+  .topbar.shadow {
+    @apply shadow-lg;
   }
 
   :global(.dark .drawer-toggle > button) {
@@ -39,8 +44,8 @@
   }
 
   .search-form {
-    max-width: 80%;
-    @apply w-96 relative pr-4 pl-4;
+    width: 70%;
+    @apply relative pr-4 pl-4;
   }
   .search-input {
     @apply h-10 w-full inline-block pl-10 pr-2 pt-2 pb-2 font-light bg-transparent transition-all;
@@ -59,7 +64,7 @@
   }
 </style>
 
-<div class="topbar">
+<div class="topbar {shadow ? 'shadow' : ''}">
   {#if !mobile}
     <div class="drawer-toggle">
       <button on:click="{drawerClick}">
