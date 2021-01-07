@@ -27,23 +27,29 @@
   .table-content {
     @apply table-auto w-full rounded-md block;
   }
+  thead {
+    @apply block w-full;
+  }
   thead > tr {
-    @apply font-semibold shadow-md bg-white w-full;
+    @apply font-semibold shadow-md bg-white w-full flex;
   }
   tbody {
     @apply block w-full;
-    height: 500px;
+    height: 300px;
   }
 
   th:nth-child(1) {
-    @apply text-left;
+    @apply text-left mr-auto pl-2;
   }
   th:nth-child(2),
-  th:nth-child(3) {
+  th:nth-child(3),
+  td:nth-child(2),
+  td:nth-child(3) {
     @apply w-1/5;
   }
-  th:nth-child(4) {
-    @apply w-3/12;
+  th:nth-child(4),
+  td:nth-child(4) {
+    @apply w-2/12;
   }
   th,
   td {
@@ -54,7 +60,7 @@
     @apply w-full h-full;
   }
   tbody tr:hover {
-    @apply bg-gray-50;
+    @apply bg-gray-100;
   }
   tbody tr:nth-child(odd) {
     @apply p-2 bg-white bg-opacity-50;

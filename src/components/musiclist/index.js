@@ -1,4 +1,5 @@
+import Categories from './Categoies.svelte';
 import HChart from './HChart.svelte';
 import VList from './VList.svelte';
 
-export { HChart, VList };
+export { Categories, HChart, VList };

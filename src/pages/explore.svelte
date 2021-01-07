@@ -1,7 +1,7 @@
 <script>
   import { metatags } from '@roxi/routify';
   import HomeBanner from '../components/HomeBanner.svelte';
-  import { HChart, VList } from '../components/musiclist/index';
+  import { Categories, HChart, VList } from '../components/musiclist/index';
 
   metatags.title = 'Spotunes - Music Player App';
   metatags.description = 'Play and Listen Musics Everywhere';
@@ -30,5 +30,7 @@
   <div class="list-left">
     <VList />
   </div>
-  <div class="list-right">Oke</div>
+  <div class="list-right">
+    <Categories />
+  </div>
 </div>
