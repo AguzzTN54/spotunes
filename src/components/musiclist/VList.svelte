@@ -33,6 +33,10 @@
   thead > tr {
     @apply font-semibold shadow-md bg-white w-full flex;
   }
+  :global(.table-content thead tr) {
+    @apply bg-gray-900 !important;
+  }
+
   tbody {
     @apply block w-full;
     height: 300px;
@@ -60,10 +64,11 @@
     @apply w-full h-full;
   }
   tbody tr:hover {
-    @apply bg-gray-100;
+    @apply bg-gray-100 dark:bg-gray-700 !important;
   }
   tbody tr:nth-child(odd) {
     @apply p-2 bg-white bg-opacity-50;
+    @apply dark:bg-gray-800 bg-opacity-40;
   }
   td:not(:nth-child(1)) {
     @apply text-center pl-1 pr-1;
