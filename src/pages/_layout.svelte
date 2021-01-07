@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import OverlayScrollbars from 'overlayscrollbars';
   import 'lazysizes';
+  import { Player } from '../components/players/index';
   import BottomAppbar from '../components/BottomAppbar.svelte';
   import Sidebar from '../components/Sidebar.svelte';
   import Topbar from '../components/Topbar.svelte';
@@ -10,6 +11,7 @@
   let shadow = false;
   let mobile = false;
   let isSidebarExpand = true;
+  let isPlayerActive = true;
 
   const checkViewport = () => {
     const screenWidth = window.innerWidth;
@@ -52,8 +54,7 @@
   }
 
   .content {
-    @apply w-full;
-    height: calc(100% - 3.5rem);
+    @apply w-full transition-all duration-300;
   }
 </style>
 
@@ -75,8 +76,14 @@
         isSidebarExpand = !isSidebarExpand;
       }}"
     />
-    <div class="content" bind:this="{content}">
+    <div
+      class="content"
+      bind:this="{content}"
+      style="{isPlayerActive ? 'height: calc(100% - 9.5rem);' : 'height: calc(100% - 3.5rem);'}"
+    >
       <slot />
     </div>
+
+    <Player />
   </main>
 </section>
