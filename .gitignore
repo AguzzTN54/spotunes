@@ -10,5 +10,6 @@
 /dist/
 assets/build
 example
+pnpm-lock.yaml
 readme.html
 src/tmp/

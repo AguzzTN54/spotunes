@@ -1,5 +1,3 @@
-const production = !process.env.ROLLUP_WATCH;
-
 module.exports = {
   darkMode: 'class',
   future: {
@@ -9,7 +7,6 @@ module.exports = {
   plugins: [],
   purge: {
     content: ['./src/**/*.svelte'],
-    // enabled: production,
     enabled: true,
   },
 };

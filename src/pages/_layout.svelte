@@ -18,7 +18,7 @@
     isSidebarExpand = screenWidth > 640;
   };
   const whenSrolled = () => {
-    const viewportElement = document.querySelector('.os-viewport');
+    const viewportElement = content.querySelector('.os-viewport');
     viewportElement.addEventListener('scroll', () => {
       const position = viewportElement.scrollTop;
       shadow = position > 0;

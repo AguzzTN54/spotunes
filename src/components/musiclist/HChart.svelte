@@ -10,7 +10,7 @@
       autoWidth: true,
       gap: '1rem',
       lazyLoad: 'nearby',
-      padding: '4rem',
+      padding: '2.5rem',
       pagination: false,
       perMove: 1,
       rewind: true,
@@ -28,7 +28,7 @@
     @apply mt-6;
   }
   .list-header {
-    @apply mr-auto ml-16 mb-3;
+    @apply mr-auto ml-10 mb-3;
   }
   h1 {
     font-size: 1.15rem;
