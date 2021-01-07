@@ -33,8 +33,8 @@
   thead > tr {
     @apply font-semibold shadow-md bg-white w-full flex;
   }
-  :global(.table-content thead tr) {
-    @apply bg-gray-900 !important;
+  :global(.dark .table-content thead tr) {
+    @apply bg-gray-900;
   }
 
   tbody {
